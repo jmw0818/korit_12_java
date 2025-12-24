@@ -29,5 +29,15 @@ public class Loop03While2 {
             }
             i++;
         }
+//        System.out.println(j);    // 오류가 나는 이유는 추후 설명 예정이지만 scope(범위), global(전역), local(지역)에 해당
+        int a = 2;
+        while (a < 10) {
+            int b = 1;
+            while (b < 10) {
+                System.out.println(a + " X " + b + " = " + (a*b));
+                b++;
+            }
+            a++;
+        }
     }
 }
