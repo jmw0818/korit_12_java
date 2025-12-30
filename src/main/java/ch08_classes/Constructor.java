@@ -33,12 +33,59 @@ public class Constructor {
         그리고 기본 생성자는 매개변수가 없으니까 method 적으로는 call1()
         유형에 해당합니다.
      */
+    // 기본 생성자
     public Constructor() {
         System.out.println("NoArgsConstructor(기본생성자)");
     }
-    // 매개변수 생성자
+    // 매개변수 생성자 # 1
     public Constructor(int number) {
         System.out.println("RequiredArgsConstructor(int 매개변수를 필수로 요구하는 생성자)");
         this.num = number;  // this : 해당 클래스에서 객체를 생성하게 되면 객체 이름으로 대체됨.
     }
+    /*
+        지시 사항 # 1
+        String title을 매개변수로 하는 생성자를 정의하고,
+        RequiredArgsConstructor(String 매개변수를 필수로 요구하는 생성자) 라는 안내문을
+        출력할 수 있도록 작성한 뒤
+        ConstructorMain으로 가서 constructor4라는 객체명을 지니고, title에 "김사"으로
+        이름 붙이고 객체를 생성한 후,
+        System.out.println(constructor4.name);을 입력하여 콘솔에 "김사"를 출력하시오.
+
+        지시 사항 # 2
+        int num, String name을 매개변수로 하는 생성자를 정의하고
+        AllArgsConstructor(int, String 전부를 매개변수로 요구하는 생성자) 라는 안내문을
+        출력할 수 있도록 작성한 뒤
+        ConstructorMain으로 가서 constructor5라는 객체명을 지니고, 5, "김오"라고
+        값을 대입한 객체를 생성한 후
+        sout(constructor5.num);
+        sout(constructor5.name);
+        을 출력하시오.
+
+        지시 사항 # 3
+        Car.java 파일 내에 있는 displayinfo() 메서드를 참조하여
+        constructor5.displayInfo();를 호출했을 경우
+        김오 학생의 학번은 5 번 입니다.
+        를 콘솔에 출력할 수 있도록 Constructor.java에 displayInfo() 메서드를 call1()유형으로
+        작성하고
+        ConstructorMain에서 호출하시오.
+     */
+    // 매개변수 생성자 # 2
+    public Constructor(String title) {
+        System.out.println("RequiredArgsConstructor(String 매개변수를 필수로 요구하는 생성자)");
+        this.name = title;
+    }
+    // 매개변수 생성자 # 3
+    public Constructor(int number, String name) {
+        System.out.println("AllArgsConstructor(int, String 전부를 매개변수로 요구하는 생성자)");
+        this.num = number;  // this : 해당 클래스에서 객체를 생성하게 되면 객체 이름으로 대체됨.
+        this.name = name;
+    }
+    public void displayInfo() {
+        System.out.println(name + " 학생의 학번은 " + num + " 번 입니다.");
+    }
+
+
+
+
+
 }
