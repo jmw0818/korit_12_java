@@ -85,35 +85,40 @@ public class Bank {
     }
 
     public void deposit(int amount, int inputPin) {
-        if (inputPin == pinNumber) {
-            if (amount > 0) {
-                int currentBalance = this.getBalance() + amount;
-                this.setBalance(currentBalance);
-                System.out.println(amount + "원이 입금되었습니다. 현재 잔액 : " + currentBalance + "원");
-            } else {
-                System.out.println("불가능한 입력 금액입니다.");
-            }
-        } else {
-            System.out.println("비밀번호가 틀렸습니다.");
-        }
+        if (!checkPassword(inputPin)) return;
+        if (!checkBalance(amount)) return;
+        balance += amount;
+        System.out.println(amount + "원이 입금되었습니다. 현재 잔액 : " + balance + "원");
     }
 
     public void withdraw(int amount, int inputPin) {
-        if (inputPin == pinNumber) {
-            if (amount > 0) {
-                if (balance - amount < 0) {
-                    System.out.println("잔액이 부족하여 출금할 수 없습니다.");
-                } else {
-                    int currentBalance = this.getBalance() - amount;
-                    this.setBalance(currentBalance);
-                    System.out.println(amount + "원이 출금되었습니다. 현재 잔액 : " + currentBalance + "원");
-                }
-            } else {
-                System.out.println("불가능한 입력 금액입니다.");
-            }
+        if (!checkPassword(inputPin)) return;
+        if (!checkBalance(amount)) return;
+        if (balance - amount < 0) {
+            System.out.println("잔액이 부족하여 출금할 수 없습니다.");
         } else {
-            System.out.println("비밀번호가 틀렸습니다.");
+            int currentBalance = this.getBalance() - amount;
+            this.setBalance(currentBalance);
+            System.out.println(amount + "원이 출금되었습니다. 현재 잔액 : " + currentBalance + "원");
         }
+    }
+
+    private boolean checkPassword(int inputPin) {
+        boolean result = true;
+        if (inputPin != pinNumber) {
+            System.out.println("비밀번호가 틀렸습니다.");
+            result = !result;
+        }
+        return result;
+    }
+
+    private boolean checkBalance(int amount) {
+        boolean result = true;
+        if (amount <= 0) {
+            System.out.println("작업에 실패하였습니다.");
+            result = !result;
+        }
+        return result;
     }
 
     public void showAccountInfo() {
