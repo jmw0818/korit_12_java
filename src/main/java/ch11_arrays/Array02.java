@@ -10,15 +10,15 @@ public class Array02 {
         int num = scanner.nextInt();
         scanner.nextLine();
         String[] studentName = new String[num];
-        for (int i = 1; i < num+1; i++) {
-            System.out.print(i + " 번 학생의 이름을 등록하세요 >>> ");
-            studentName[i-1] = scanner.nextLine();
+        for (int i = 0; i < num; i++) {
+            System.out.print(i+1 + " 번 학생의 이름을 등록하세요 >>> ");
+            studentName[i] = scanner.nextLine();
         }
 
         double[] scores = new double[num];
-        for (int i = 1; i < num+1; i++) {
-            System.out.print(i + " 번 학생의 점수를 입력하세요 >>> ");
-            scores[i-1] = scanner.nextDouble();
+        for (int i = 0; i < num; i++) {
+            System.out.print(i+1 + " 번 학생의 점수를 입력하세요 >>> ");
+            scores[i] = scanner.nextDouble();
         }
         System.out.println("학생들의 점수 총합은 " + Arrays.stream(scores).sum() + "점입니다.");
     }
