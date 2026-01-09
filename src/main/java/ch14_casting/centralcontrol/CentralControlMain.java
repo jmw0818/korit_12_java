@@ -12,12 +12,14 @@ public class CentralControlMain {
         CentralControl centralControl1 = new CentralControl(new Power[10]);
         // 이하의 코드는 powers 배열을 만든 다음에 내부에 Power의 하위 클래스들의 객체를 집어넣었음.
         Power[] powers = {new AirConditioner(), new Computer(), new Mouse(), new LED(), new Printer(), new Speaker()};   // 업캐스팅이 일어남.
+        System.out.println(powers[0]);
 
         /*
             근데 여기서 각 전자기기들의 객체를 생성하고 집어넣는 것까지 전부 다 실험을 할 예정이기 때문에
             powers를 직접 쓰지는 않을 것이고, Power가 interface이기 대문에 객체 생성이 안되는데 배열을 만들 수 있는가를
             검증하기 위해 코드를 남겨둠.
          */
+
 
 //        centralControl1.deviceArray       // deviceArray는 private이기 때문에 접근 불가능, 접근할 수 있는 메서드를 정의해야함.
         centralControl1.addDevice(airConditioner1); // addDevice() 매개변수로 Power를 받기 때문에 업캐스팅이 일어남.
@@ -44,6 +46,8 @@ public class CentralControlMain {
 
         centralControl1.deleteDevice1("LED");
         centralControl1.deleteDevice2(2);
+
+
 
     }
 }

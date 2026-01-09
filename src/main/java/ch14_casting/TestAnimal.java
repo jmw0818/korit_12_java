@@ -10,4 +10,8 @@ public class TestAnimal {
     public void sound() {
         System.out.println("동물이 소리를 낸다");
     }
+
+    public void showInfo() {
+        System.out.println(animalArray[0]);
+    }
 }

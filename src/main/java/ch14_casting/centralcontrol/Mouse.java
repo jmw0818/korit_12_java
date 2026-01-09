@@ -15,5 +15,4 @@ public class Mouse implements Power{
     public void leftClick() {
         System.out.println("마우스 왼쪽 클릭 !");
     }
-    /// gd 추가추가
 }

@@ -3,17 +3,22 @@ public class TestMain {
     public static void main(String[] args) {
 //        TestAnimal testAnimal = new TestAnimal();
 //        testAnimal.sound();
-//        TestDog testDog = new TestDog();
+        TestDog testDog = new TestDog();
 //        testDog.sound();
 
 //        TestAnimal testAnimal1 = new TestDog();
 //        testAnimal1.sound();
 
         TestAnimal testAnimal = new TestAnimal(new Animal[2]);
-//        Animal[] animals = { new TestDog(), new TestCat()};
+        Animal[] animals = { new TestDog(), new TestCat() };
 //        for (Animal animal : animals) {
 //            animal.sound();
 //        }
         testAnimal.sound();
+        testAnimal.showInfo();
+        System.out.println(animals[0]);
+        animals[0] = testDog;
+        System.out.println(animals[0].getClass().getSimpleName());
+
     }
 }
