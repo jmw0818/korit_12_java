@@ -14,11 +14,12 @@ public class BookMap {
         int option = 0;
 
         while (option != 4) {
-            System.out.println("--- 도서 재고 관리 프로그램 ---\n" +
-                    "1. 도서 추가\n" +
-                    "2. 재고 수정\n" +
-                    "3. 재고 목록\n" +
-                    "4. 종료");
+            System.out.println("""
+                    --- 도서 재고 관리 프로그램 ---
+                    1. 도서 추가
+                    2. 재고 수정
+                    3. 재고 목록
+                    4. 종료""");
             System.out.print("메뉴를 선택하세요 >>> ");
             option = scanner.nextInt();
             scanner.nextLine();
@@ -48,6 +49,8 @@ public class BookMap {
                 case 4:
                     System.out.println("프로그램을 종료합니다.");
                     return;
+                default:
+                    System.out.println("잘못된 선택입니다.");
             }
         }
     }
